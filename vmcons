@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# connect to a VM's console, over telnet or VNC, using SSH forwarding
+
+# arguments:
+host=$1
+port=$2    # required if ssh config not setup for this host
+
+conf=$HOME/.ssh/config
+
+if grep -q "Host ${1}.vm$" $conf ; then
+    if [ -z "$port" ] ; then
+        port=$(grep -A 1 "Host ${1}.vm$" $conf | sed -ne 's/LocalForward \([0-9]*\) .*/\1/p')
+    fi
+    host=${1}.vm
+    tun=""
+else 
+    tun="-L $port:localhost:$port "
+fi
+
+if [ "x$port" = "x" ] ; then 
+    printf "could not determine tunnel port.\n"
+    exit 1
+fi
+
+display=${port#59}
+tuncmd="ssh -NTf $tun$host"
+
+printf "Creating tunnel through $host:$port.. "
+
+$tuncmd || exit
+
+printf "done.\n"
+
+if [ "x$display" = "x$port" ] ; then 
+    printf "Connecting to serial console:\n"
+    telnet -4 localhost $port
+else
+    printf "Launching remote console viewer on display $display:\n"
+    vncviewer localhost:$display
+fi
+
+pkill -f "$tuncmd" 

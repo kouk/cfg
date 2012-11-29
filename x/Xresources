@@ -1,0 +1,17 @@
+URxvt.modifier: alt
+!URxvt.font: xft:Inconsolata-12:antialias=false
+!URxvt.boldFont: xft:Inconsolata-12:style=Bold,antialias=false
+URxvt.font: xft:DejaVu Sans Mono-12:antialias=false
+URxvt.boldFont: xft:DejaVu Sans Mono-12:style=Bold,antialias=false
+URxvt.scrollBar: off
+URxvt.depth: 32
+URxvt.matcher.button: 8
+URxvt.matcher.rend.0: Normal
+urxvt.urgentOnBell: true
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+#include "share/solarized/xresources-colors-solarized/Xresources"

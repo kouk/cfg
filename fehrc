@@ -1,0 +1,4 @@
+feh -rV
+fehz -r -V -F -Z
+imgidx -iVO .fehindex.jpg --limit-width 1200 --thumb-width 90 --thumb-height 90 .
+newimg -q -L "<img src=\"%f\" alt=\"%n\" border=\"0\" width=\"%w\" height=\"%h\">"

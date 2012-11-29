@@ -7,6 +7,3 @@
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
 	url = git@github.com:vim-scripts/bufexplorer.zip.git
-[submodule "vim/bundle/uri-ref"]
-	path = vim/bundle/uri-ref
-	url = https://github.com/vim-scripts/uri-ref

@@ -171,7 +171,14 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 
 call init#SetupVAM()
-call vam#ActivateAddons(['SudoEdit','pathogen','uri-ref','gnupg%3645'], {'auto_install' : 0})
+call vam#ActivateAddons([
+    \ 'SudoEdit',
+    \ 'pathogen',
+    \ 'uri-ref',
+    \ 'gnupg%3645',
+    \ 'vim-addon-local-vimrc',
+    \ 'vcscommand',
+    \ ], {'auto_install' : 0})
 call pathogen#infect() " for plugins not available with VAM
 
 let g:solarized_termtrans=1

@@ -181,6 +181,7 @@ call vam#ActivateAddons([
     \ 'vim-addon-local-vimrc',
     \ 'vcscommand',
     \ 'xml-nospell-syntax',
+    \ 'bufexplorer.zip',
     \ ], {'auto_install' : 0})
 call pathogen#infect() " for plugins not available with VAM
 

@@ -655,6 +655,8 @@ sub cleanup_dangling_symlinks {
             my $target_base = realpath(
                 File::Spec->rel2abs( File::Spec->catpath( '', @elements ) ) );
 
+            next if not defined ($target_base);
+
             DEBUG("target_base $target_base $source_dir");
             if ( $target_base eq $source_dir ) {
                 INFO(

@@ -171,13 +171,16 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 
 call init#SetupVAM()
+let g:vim_addon_manager.plugin_sources["xml-nospell-syntax"] = {'type' : 'git', 'url': 'git://github.com/kouk/vim-xml-nospell-syntax.git'}
 call vam#ActivateAddons([
     \ 'SudoEdit',
+    \ 'Solarized',
     \ 'pathogen',
     \ 'uri-ref',
     \ 'gnupg%3645',
     \ 'vim-addon-local-vimrc',
     \ 'vcscommand',
+    \ 'xml-nospell-syntax',
     \ ], {'auto_install' : 0})
 call pathogen#infect() " for plugins not available with VAM
 

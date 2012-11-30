@@ -1,6 +1,3 @@
-[submodule "vim/bundle/syn-xml-nospell"]
-	path = vim/bundle/syn-xml-nospell
-	url = git@github.com:kouk/vim-syn-xml-nospell.git
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
 	url = git@github.com:vim-scripts/bufexplorer.zip.git

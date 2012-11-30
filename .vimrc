@@ -171,7 +171,9 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 
 call init#SetupVAM()
+
 let g:vim_addon_manager.plugin_sources["xml-nospell-syntax"] = {'type' : 'git', 'url': 'git://github.com/kouk/vim-xml-nospell-syntax.git'}
+
 call vam#ActivateAddons([
     \ 'SudoEdit',
     \ 'Solarized',
@@ -193,3 +195,4 @@ colorscheme solarized
 let g:sudoAuth="sudo"
 let g:sudoAuthArg=""
 
+let g:local_vimrc = {'names':['.vimrc_local'],'hash_fun':'LVRHashOfFile'}

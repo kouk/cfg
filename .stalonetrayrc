@@ -1,0 +1,7 @@
+icon_size 20
+geometry 8x1+1126+0
+sticky 
+skip_taskbar 
+background "#eee8d5"
+icon_gravity NW
+

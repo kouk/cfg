@@ -1,0 +1,6 @@
+[Desktop Entry] 
+Encoding=UTF-8
+Name=LocalXrdb
+Comment=Load local xrdb
+TryExec=localxrdb.sh
+Exec=localxrdb.sh

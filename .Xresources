@@ -9,7 +9,7 @@ URxvt.matcher.button: 8
 URxvt.matcher.rend.0: Normal
 urxvt.urgentOnBell: true
 Xft.dpi:                    96
-Xft.antialias:              false
+Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight

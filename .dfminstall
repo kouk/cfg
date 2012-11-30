@@ -2,3 +2,4 @@ README.md skip
 .gitmodules skip
 .local recurse
 .vim recurse
+.config recurse

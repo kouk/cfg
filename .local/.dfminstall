@@ -1,2 +1,2 @@
 bin recurse
-share skip
+share recurse

@@ -1,0 +1,60 @@
+pcm.my_card {
+  type hw
+  card 1
+  # mmap_emulation true
+}
+pcm.dmixed {
+  ## This provides software mixing for audio out
+  type dmix
+  ipc_key 1024
+  slave {
+  pcm "my_card"
+  ## period_size and buffer_size
+  ## can be modified to reduce
+  ## latency or add more 'cusion'
+  ## through the buffer
+  period_size 1024
+  buffer_size 4096
+  rate 44100
+  }
+}
+pcm.dsnooped {
+  ## this provides software mixing for audio in
+  type dsnoop
+  ipc_key 2048
+  slave {
+  pcm "my_card"
+  period_size 1024
+  buffer_size 4096
+  rate 44100
+  }
+}
+pcm.asymed {
+  ## this plugin allows you to bind both
+  ## the dmix and dsnoop plugins together
+  type asym
+  playback.pcm "dmixed"
+  capture.pcm "dsnooped"
+}
+pcm.pasymed {
+  ## if you do not want to use use
+  ## mixing by default, you can delete
+  ## !default entry below and direct
+  ## apps to use this 'device' as a
+  ## extra option
+  type plug
+  slave.pcm "asymed"
+}
+pcm.dsp0 {
+  ## this allows most OSS-only apps
+  ## to use this mixing stuff
+  ## through the use of the aoss wrapper
+  type plug
+  slave.pcm "asymed"
+}
+pcm.!default {
+  ## this makes alsa apps default
+  ## to use this config
+  type plug
+  slave.pcm "asymed"
+}

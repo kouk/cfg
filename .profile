@@ -1,6 +1,6 @@
 if [ -n "$BASH_VERSION" ] ; then
     ENV="$HOME/.bashrc"
-    case $- in ; *i*) [ -f "$ENV" ] && . $ENV ; esac
+    case $- in *i*) [ -f "$ENV" ] && . "$ENV" ; esac
 elif [ -n "$KSH_VERSION" ] ; then
     ENV="$HOME/.kshrc"
 else

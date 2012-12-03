@@ -1,0 +1,27 @@
+#!/usr/local/bin/ksh93
+
+tmxcycle ( ) {
+     # if no session is started, start a new session
+     if [ -x /usr/local/bin/tmux -a -z "${TMUX}" ]; then
+         bintmux=/usr/local/bin/tmux
+         if [ $# -gt 1 ] ; then
+             session_name=$1
+             selectw="selectw -t $2"
+         elif [ $# -gt 0 ] ; then
+             session_name=$1
+         else
+             session_name=$(printf '%0.4x' $RANDOM)
+         fi
+         $bintmux attach -t $session_name \; $selectw  ||
+             $bintmux new -s $session_name
+         if $bintmux ls -F '#{session_name}' |grep -Eq $session_name ; then exit ; fi
+         while true ; do
+             sns=$($bintmux ls -F '#{session_name}' |grep -vE $session_name | tail -n 1)
+             if [ -z "$sns" ] ; then exit ; fi
+             session_name="$session_name|$sns"
+             $bintmux attach -t $sns
+         done
+     fi
+}
+
+[ $(basename -- $0) = "tmxcycle" ] && tmxcycle "$@"

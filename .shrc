@@ -10,7 +10,7 @@ if [ -x $CONNECTGPG ] ; then
         [ -f $HOME/.gnupg/gpg-agent-info ] ; then
        . $HOME/.gnupg/gpg-agent-info
        if env GPG_AGENT_INFO=$GPG_AGENT_INFO \
-           $CONNECTGPG /bye 2>&1 ; then
+           $CONNECTGPG /bye >/dev/null 2>&1 ; then
           export GPG_AGENT_INFO SSH_AUTH_SOCK \
                  SSH_AGENT_PID GPG_TTY=$(tty)
        fi

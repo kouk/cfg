@@ -1,16 +1,11 @@
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+if [ -n "$BASH_VERSION" ] ; then
+    ENV="$HOME/.bashrc"
+    case $- in *i*) [ -f "$ENV" ] && . "$ENV" ; esac
+elif [ -n "$KSH_VERSION" ] ; then
+    ENV="$HOME/.kshrc"
+else
+    ENV="$HOME/.shrc"
 fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
 
 export COLORFGBG="brightblue;white"
 export CLICOLOR=true
@@ -23,3 +18,14 @@ for i in java appletviewer javaws opera ; do
 	eval 'export JAVAVM_OPTS_'$i'="-Djava.net.preferIPv4Stack=true -Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.aatext=true"'
 done
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+if [ -d ~/.profile.d ]; then
+   for f in ~/.profile.d/* ; do 
+      . $f
+   done
+fi
+
+add_path ~/.local/bin
+for d in ~/.local/bin/* ; do
+   [ -d $d ] && add_path $d
+done

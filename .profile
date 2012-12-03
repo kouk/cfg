@@ -1,9 +1,10 @@
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+if [ -n "$BASH_VERSION" ] ; then
+    ENV="$HOME/.bashrc"
+    case $- in ; *i*) [ -f "$ENV" ] && . $ENV ; esac
+elif [ -n "$KSH_VERSION" ] ; then
+    ENV="$HOME/.kshrc"
+else
+    ENV="$HOME/.shrc"
 fi
 
 # set PATH so it includes user's private bin if it exists

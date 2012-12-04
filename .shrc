@@ -1,8 +1,19 @@
-[ -z "$PS1" ] && return
+case $- in *i*) ;; *) return ;; esac
 
 if [ -f ~/.sh_aliases ]; then
 	. ~/.sh_aliases
 fi
+
+case "$TERM" in
+xterm*|rxvt*|screen)
+    PS1="]0;$PS1$PS1"
+    ;;
+*)
+    ;;
+esac
+
+PS1="$PS1\$ "
+
  
 CONNECTGPG=$(which gpg-connect-agent)
 if [ -x $CONNECTGPG ] ; then

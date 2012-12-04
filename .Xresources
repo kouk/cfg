@@ -14,4 +14,4 @@ Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
-#include ".local/share/solarized/xresources-colors-solarized/Xresources"
+#include ".local/share/solarized/xresources/solarized"

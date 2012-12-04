@@ -7,7 +7,7 @@ else
     ENV="$HOME/.shrc"
 fi
 
-export COLORFGBG="brightblue;white"
+export COLORFGBG="default;default"
 export CLICOLOR=true
 export EDITOR=vim
 export FCEDIT=vim

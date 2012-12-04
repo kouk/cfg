@@ -28,7 +28,6 @@ set nowrap
 
 set nocp
 
-set number
 set ruler
 
 set foldmethod=syntax

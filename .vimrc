@@ -8,7 +8,7 @@ set nocompatible
 
 set makeprg=gmake
 
-set background=light
+set background=dark
 
 set cmdheight=2 
 
@@ -157,7 +157,7 @@ if has("autocmd")
   autocmd Syntax * syntax match Error "\s\+$"
   autocmd Syntax * syntax match Special "\t"
   autocmd Syntax * syntax match Error " \+\t"me=e-1
-  autocmd Syntax * highlight Special guifg=SlateBlue guibg=LightGray
+"  autocmd Syntax * highlight Special guifg=SlateBlue guibg=LightGray
 "  autocmd Syntax * syntax match Error "\(^.\{79\}\)\@<=." contains=ALL containedin=ALL
 
 endif " has("autocmd")

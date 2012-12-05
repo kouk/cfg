@@ -1,0 +1,15 @@
+# -*- muttrc -*-
+#
+# Composing & sending
+#
+
+set mime_forward			# Forward message as MIME attachments.
+unset reply_self
+set fast_reply
+					# Spell checking with http://www.vim.org/scripts/script.php?script_id=195
+# set editor="vim -s ~/.mutt/vim/commands -u ~/.mutt/vim/vimrc"
+set editor="vim -s ~/.mutt/vim/commands"
+set edit_headers			# Permit editting of message headers
+set sendmail_wait=-1			# Don't wait around for sendmail.
+set signature="~/.signature"
+set dotlock_program=/usr/local/bin/mutt_dotlock

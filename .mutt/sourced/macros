@@ -1,0 +1,98 @@
+# -*- muttrc -*-
+#
+# Macros for mutt.
+#
+
+set wait_key=no				# Don't show the "Press any key to continue..." message.
+
+## Page down/up
+macro	index,pager		<PageDown>	<half-down>
+macro	index,pager		<PageUp>	<half-up>
+
+## URLView
+macro index,pager,attach,compose B "<enter-command> set my_pipe_decode=\$pipe_decode pipe_decode<Enter><pipe-message> urlview<Enter><enter-command> set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<Enter>" "call urlview to extract URLs out of a message"
+
+
+## Sidebar
+macro index <f10> '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager <f10> '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+## Open archive folders
+macro index,pager ',a' '<enter-command> set mask=".*"<enter>\
+				<change-folder-readonly>~/.mail_archive/.<complete><complete>' 'open an archive folder'
+
+# Mailboxes view
+macro index,pager 'C' '<change-folder>?<toggle-mailboxes>' "enter mailboxes view"
+
+# Open and search
+macro index,pager ',c' '<enter-command>set mask=$my_mask<enter>\
+			<change-folder>?<search>'\
+			'open a different folder and search'
+
+# Just open
+macro index,pager ',c' '<enter-command>set mask=$my_mask<enter>\
+			<change-folder>=<complete><complete><complete>'\
+			'open a different folder'
+
+# Load the inbox
+macro index,pager 'I'	'<change-folder>!<enter>' 'load the inbox'
+
+macro index,pager a "<pipe-message>~/pyenv/bin/goobook add<return>" "add the sender address to Google contacts"
+
+## Show documentation
+macro index,pager <f8> "<enter-command> unset wait_key<enter>\
+<shell-escape> zless /usr/share/doc/mutt/manual.txt.gz<enter>\
+<enter-command> set wait_key<enter>" "Show Mutt documentation"
+
+## meta-b -> search body (~b)
+macro index \eb '/~b ' 'search in message bodies'
+
+## change subject (was: original subject)
+macro compose \es '<edit-subject>)<bol> (was: <bol>'
+
+## find first new message
+macro index '\ef' '<first-entry><next-new><current-middle>' 'center first new message'
+
+## first/last entry in pager
+macro pager - <exit><first-entry><display-message> "goto first message"
+macro pager = <exit><last-entry><display-message "goto last message"
+
+## verify sig when c_v_s is off by default
+macro index ,p "<enter-command> set crypt_verify_sig<enter>\
+<display-message><enter-command> unset crypt_verify_sig<enter>" "verify pgp sig"
+macro pager ,p "<enter-command> set crypt_verify_sig<enter>\
+<exit><display-message><enter-command> unset crypt_verify_sig<enter>" "verify pgp sig"
+
+## Spell checker
+set my_aspell_en="/usr/bin/aspell -c --mode=email --lang=en_US"
+set my_aspell_el="/usr/bin/aspell -c --mode=email --lang=el"
+
+# English
+set ispell="$my_aspell_en"
+
+# Greek
+macro compose I '<enter-command>set ispell="$my_aspell_el"<enter>\
+<ispell><enter-command>set ispell="$my_aspell_en"<enter>' "greek aspell"
+
+## Mark all read
+macro index ,r '<tag-pattern>.<enter><tag-prefix-cond><clear-flag>N\
+<untag-pattern>.<enter><enter-command> set my_echo="All mail marked read"<enter>\
+<enter-command> set ?my_echo<enter>' "mark all read"
+
+## Delete all
+macro index ,D '<tag-pattern>~N<enter><tag-prefix-cond><delete-message>\
+<enter-command> set my_echo="All mail marked deleted"<enter>\
+<enter-command> set ?my_echo<enter>' "mark all new as deleted"
+
+## TOFU protection by t-prot
+macro index,pager	,t 	<enter-command>' unset display_filter;\
+set ?display_filter<enter>' "Turn TOFU protection off"
+macro index,pager	,T 	"<enter-command> set display_filter='t-prot $my_tprot';\
+set ?display_filter<enter>" "Turn TOFU protection on"
+
+## Reload config (f5)
+macro	index,pager,pager	<f5>	'<enter-command> set my_status="Reloaded configuration"; source ~/.mutt/muttrc; set ?my_status<enter>'	"reload muttrc"
+
+
+macro   browser <space> '<view-file>' "open folder"
+

@@ -1,0 +1,28 @@
+# set up the sidebar, default not visible
+set sidebar_width=30
+set sidebar_visible=no
+set sidebar_delim=' '
+set sidebar_sort=yes
+
+# which mailboxes to list in the sidebar
+#mailboxes =inbox =ml
+
+# color of folders with new mail
+color sidebar_new brightmagenta     default
+
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+bind index "K" sidebar-prev
+bind index "J" sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+
+# b toggles sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+# Remap bounce-message function to "B"
+bind index B bounce-message
+

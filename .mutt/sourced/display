@@ -1,0 +1,43 @@
+# -*- muttrc -*-
+#
+# Display settings
+#
+
+push <show-version>			# Show version at startup
+set strict_threads
+set sort=date			# Sort by threads
+set sort_aux=date-received		# Secondary sorting method
+set pager_index_lines=15		# 15 lines assigned to message list when viewing one
+set my_pager_index_lines=pager_index_lines
+set read_inc=25				# Read counter ticks every 100 msgs.
+set write_inc=25			# Write counter ticks every 100 msgs.
+set pager_stop				# Don't skip msgs on next page.
+unset menu_move_off			# Don't let last items of menus scroll up past the bottom of the screen.
+set help=no
+set status_on_top=yes
+set menu_scroll				# Scroll line by line when reaching end of page.
+set menu_context=5			# Lines of context
+set pager_context=1			# Lines of context
+unset markers				# Add a '+' marker to wrapped lines.
+mime_lookup application/octet-stream	# See if it is really the correct MIME type, otherwise change it.
+mime_lookup text/plain		 	# See if it is really the correct MIME type, otherwise change it.
+alternative_order text/plain text/html
+set ignore_list_reply_to
+set assumed_charset=utf-8
+
+set arrow_cursor=yes
+
+# set date_format="!%a, %d %b, %Y at %H:%M:%S %Z"
+# set date_format="%a, %b %d %Y %H:%M"
+# set date_format="%a, %d/%b/%Y %H:%M"
+#set date_format="%a %d.%b.%y %H:%M"
+set date_format="%a %y.%b.%d"
+
+#set my_status_format="%f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]   (%s/%S) %> %r "
+set my_status_format='-%r- %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)-'
+set status_format="mutt_xtitle '$my_status_format'|"
+
+unset wait_key				# Don't prompt for a key press after shell-escape and the like.
+
+set folder_format="%t %2N   %f %2C %s %d "
+

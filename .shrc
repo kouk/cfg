@@ -29,3 +29,14 @@ if [ -x $CONNECTGPG ] ; then
 fi
 unset CONNECTGPG
 
+if ! dbus-send --dest=org.freedesktop.DBus --type=method_call / org.freedesktop.DBus.Hello 2>/dev/null ; then
+   unset DBUS_SESSION_BUS_ADDRESS
+   mid=$(cat /var/db/dbus/machine-id ||
+         cat /var/lib/dbus/machine-id 2>/dev/null)
+   display=${DISPLAY#*:}
+   display=${display%\.*}
+   source ~/.dbus/session-bus/$mid-$display 2>/dev/null
+   export DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID DBUS_SESSION_BUS_WINDOWID
+fi
+
+# secrets=$(dbus-send --dest=org.freedesktop.DBus --type=method_call --print-reply / org.freedesktop.DBus.NameHasOwner string:org.freedesktop.secrets) 

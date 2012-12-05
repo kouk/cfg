@@ -1,0 +1,6 @@
+set crypt_autosign=yes
+set crypt_autosmime=yes
+set crypt_replyencrypt=yes
+set crypt_timestamp=yes
+set smime_is_default=yes
+

@@ -1,0 +1,12 @@
+# -*- muttrc -*-
+#
+# Send (and message) hooks
+#
+
+## From and Signature ##
+send-hook	.*				'set signature="~/.signature"'
+send-hook	'~t "(majordomo|subscribe)"'	'unset signature'
+
+## Custom headers ##
+send-hook	'~A'	'my_hdr X-Accept-Language: en, el, el_GR'
+

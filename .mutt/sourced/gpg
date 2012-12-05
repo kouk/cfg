@@ -1,0 +1,4 @@
+# GnuPG config
+set crypt_use_gpgme=yes
+set crypt_verify_sig
+set pgp_use_gpg_agent

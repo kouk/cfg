@@ -1,0 +1,6 @@
+# -*- muttrc -*-
+#
+# Fcc hooks, everything else goes to =Sent
+#
+#
+fcc-hook identity@gunet.gr    imaps://mail.uoa.gr/INBOX.Sent

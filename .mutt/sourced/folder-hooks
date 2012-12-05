@@ -1,0 +1,76 @@
+# -*- muttrc -*-
+#
+# folder  hooks
+#
+#
+#
+folder-hook    '.*/Important'                                   'push <limit>~N|~O<enter>'
+
+###############################################################################
+#
+# spam
+#
+###############################################################################
+
+folder-hook    'imaps://.*imap.gmail.com'                     'macro index,pager S "<save-message>=[Gmail]/Spam<enter>"    "mark message as spam"
+folder-hook    'imaps://.*imap.gmail.com/.Gmail./Spam'        'macro index,pager H "<save-message>=!<enter>"               "mark message as ham"
+
+###############################################################################
+#
+# $record
+#
+###############################################################################
+
+folder-hook	'imaps://.*@imap.gmail.com'			unset record
+
+###############################################################################
+#
+# $sort
+#
+###############################################################################
+
+folder-hook	.				'set sort=threads; set sort_aux=date-received'
+folder-hook	'!'				'set sort=date-sent'
+folder-hook	'.*INBOX'			'set sort=date-sent'
+folder-hook	.Sent				'set sort=date-sent'
+folder-hook	".*All Mail"			'set sort=threads; set sort_aux=last-date-received'
+
+###############################################################################
+#
+# $mark_old
+#
+###############################################################################
+
+folder-hook	.     				'set mark_old'
+folder-hook	'!'           'unset mark_old'
+folder-hook	'.*INBOX'			'unset mark_old'
+folder-hook	'.*All.Mail'	'unset mark_old'
+
+###############################################################################
+#
+# $index_format
+#
+###############################################################################
+
+folder-hook     .           '\
+    set index_format=" %Z  %-25.25F  %-70.70s %> %D [%?l?%4l&%4c?]"'
+
+folder-hook	.Spam			'set index_format="%4C %Z  [%?l?%4l&%4c?]  %D %?H?[%H] &[Nonspam] ?    %22.22F   %s"'
+
+###############################################################################
+#
+# <collapse-all>
+#
+###############################################################################
+
+folder-hook	.				'set collapse_unread'
+
+###############################################################################
+#
+# $trash
+#
+###############################################################################
+
+folder-hook	'imaps://*@imap.gmail.com'		'unset trash'
+
+

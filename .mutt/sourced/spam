@@ -1,0 +1,9 @@
+# -*- muttrc -*-
+#
+# Spam filtering settings
+#
+
+## Spam
+set imap_headers="X-Bogosity X-Spam-Status X-Grouchosity"
+unset spam_separator
+

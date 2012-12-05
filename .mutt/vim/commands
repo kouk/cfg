@@ -1,0 +1,6 @@
+:set spell
+:1
+/^$
+:nohlsearch
+/^-- 
+O

@@ -165,6 +165,7 @@ endif " has("autocmd")
 set spelllang=en,el
 set spellfile=spell.utf-8.add,~/.vim/spell/en.utf-8.add
 
+set guifont="DejaVu Sans Mono 10"
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar

@@ -6,6 +6,8 @@
 #
 folder-hook    '.*/Important'                                   'push <limit>~N|~O<enter>'
 
+folder-hook . 'set status_format="mutt_xtitle \"$my_email: $my_status_format\"|"'
+
 ###############################################################################
 #
 # spam

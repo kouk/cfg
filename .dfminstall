@@ -3,3 +3,4 @@ README.md skip
 .local recurse
 .vim recurse
 .config recurse
+.mutt recurse

@@ -1,1 +1,8 @@
 include "/home/kouk/.themes/DarkSolarizedGTK/gtk-2.0/gtkrc"
+style "schrift"
+{
+    font_name = "DejaVu Sans 12"
+}
+widget_class "*" style "schrift"
+gtk-font-name = "DejaVu Sans 12"
+

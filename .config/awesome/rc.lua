@@ -208,7 +208,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "r",     function () awful.prompt.run({prompt="Run:"},
+                                           mypromptbox[mouse.screen].widget,
+                                           check_for_terminal,
+                                           clean_for_completion,
+                                           awful.util.getdir("cache") .. "/history") end),
 
     awful.key({ modkey }, "x",
               function ()
@@ -333,4 +337,28 @@ end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- }}}
+
+-- {{{ functions to help launch run commands in a terminal using ":" keyword 
+function check_for_terminal (command)
+   if command:sub(1,1) == ":" then
+      command = terminal .. ' -e "' .. command:sub(2) .. '"'
+   end
+   awful.util.spawn(command)
+end
+   
+function clean_for_completion (command, cur_pos, ncomp, shell)
+   local term = false
+   if command:sub(1,1) == ":" then
+      term = true
+      command = command:sub(2)
+      cur_pos = cur_pos - 1
+   end
+   command, cur_pos =  awful.completion.shell(command, cur_pos,ncomp,shell)
+   if term == true then
+      command = ':' .. command
+      cur_pos = cur_pos + 1
+   end
+   return command, cur_pos
+end
 -- }}}

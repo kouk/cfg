@@ -8,8 +8,8 @@
 
 -- {{{ Main
 theme = {}
-theme.default_themes_path = "/usr/share/awesome/themes"
-theme.wallpaper_cmd = { "awsetbg "..theme.default_themes_path.."/zenburn/zenburn-background.png" }
+theme.default_themes_path = awful.util.getdir("config") .. "/themes"
+theme.wallpaper_cmd = { "awsetbg -l " }
 theme.colors = {}
 theme.colors.base3   = "#002b36ff"
 theme.colors.base2   = "#073642ff"
@@ -30,7 +30,8 @@ theme.colors.green   = "#859900ff"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "Ubuntu Mono 11"
+theme.font      = "sans 8"
+theme.taglist_font = "sans 12"
 
 -- {{{ Colors
 theme.fg_normal  = theme.colors.base02

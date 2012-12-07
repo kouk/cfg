@@ -10,4 +10,4 @@ if [ -f $bash_completion ] && ! shopt -oq posix; then
 fi
 unset bash_completion
 
-export PROMPT_COMMAND = "echo -ne '\a'"
+export PROMPT_COMMAND="echo -ne '\a'"

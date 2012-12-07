@@ -10,9 +10,6 @@ require("naughty")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init(awful.util.getdir("config") .. "/themes/solarized/dark/theme.lua")
-beautiful.font      = "sans 8"
-
-
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"

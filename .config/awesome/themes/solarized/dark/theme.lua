@@ -31,7 +31,7 @@ theme.colors.green   = "#859900ff"
 
 -- {{{ Styles
 theme.font      = "sans 8"
-theme.taglist_font = "sans 12"
+theme.taglist_font = "sans 14"
 
 -- {{{ Colors
 theme.fg_normal  = theme.colors.base02
@@ -78,7 +78,7 @@ theme.taglist_squares_unsel = theme.default_themes_path.."/zenburn/taglist/squar
 
 -- {{{ Misc
 theme.awesome_icon           = theme.default_themes_path.."/zenburn/awesome-icon.png"
-theme.menu_submenu_icon      = theme.default_themes_path.."/default/submenu.png"
+theme.menu_submenu_icon      = theme.default_themes_path.."/zenburn/submenu.png"
 -- }}}
 
 -- {{{ Layout

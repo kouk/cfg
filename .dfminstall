@@ -4,3 +4,4 @@ README.md skip
 .vim recurse
 .config recurse
 .mutt recurse
+.aptitude recurse

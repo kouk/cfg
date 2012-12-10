@@ -5,3 +5,4 @@ README.md skip
 .config recurse
 .mutt recurse
 .aptitude recurse
+.gnupg recurse

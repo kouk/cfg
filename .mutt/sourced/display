@@ -5,7 +5,7 @@
 
 push <show-version>			# Show version at startup
 set strict_threads
-set sort=date			# Sort by threads
+set sort=threads			# Sort by threads
 set sort_aux=date-received		# Secondary sorting method
 set pager_index_lines=15		# 15 lines assigned to message list when viewing one
 set my_pager_index_lines=pager_index_lines

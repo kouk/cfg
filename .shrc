@@ -39,4 +39,9 @@ if ! dbus-send --dest=org.freedesktop.DBus --type=method_call / org.freedesktop.
    export DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID DBUS_SESSION_BUS_WINDOWID
 fi
 
+TMUXDISPLAY=$(which tmuxdisplay)
+if [ -x "$TMUXDISPLAY" ] ; then
+	export $($TMUXDISPLAY)
+fi
+
 # secrets=$(dbus-send --dest=org.freedesktop.DBus --type=method_call --print-reply / org.freedesktop.DBus.NameHasOwner string:org.freedesktop.secrets) 

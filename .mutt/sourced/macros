@@ -75,9 +75,9 @@ macro compose I '<enter-command>set ispell="$my_aspell_el"<enter>\
 <ispell><enter-command>set ispell="$my_aspell_en"<enter>' "greek aspell"
 
 ## Mark all read
-macro index ,r '<tag-pattern>.<enter><tag-prefix-cond><clear-flag>N\
-<untag-pattern>.<enter><enter-command> set my_echo="All mail marked read"<enter>\
-<enter-command> set ?my_echo<enter>' "mark all read"
+macro index ,r '<tag-pattern>~N|~O<enter><tag-prefix-cond><clear-flag>N\
+<untag-pattern>~T<enter><enter-command> set my_echo="All New Mail Marked Read"<enter>\
+<enter-command> set ?my_echo<enter>' "mark all new mail read"
 
 ## Delete all
 macro index ,D '<tag-pattern>~N<enter><tag-prefix-cond><delete-message>\
@@ -93,6 +93,6 @@ set ?display_filter<enter>" "Turn TOFU protection on"
 ## Reload config (f5)
 macro	index,pager,pager	<f5>	'<enter-command> set my_status="Reloaded configuration"; source ~/.mutt/muttrc; set ?my_status<enter>'	"reload muttrc"
 
-
 macro   browser <space> '<view-file>' "open folder"
 
+source ~/.mutt/sourced/macros.pager_index_lines-off

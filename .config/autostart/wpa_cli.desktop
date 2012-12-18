@@ -1,0 +1,6 @@
+[Desktop Entry] 
+Encoding=UTF-8
+Name=WpaCliPass
+Comment=WpaCliPass
+TryExec=wpaclipass.sh
+Exec=wpaclipass.sh

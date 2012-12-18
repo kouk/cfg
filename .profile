@@ -21,6 +21,8 @@ for d in ~/.local/bin/* ; do
    [ -d $d ] && add_path $d
 done
 
+pre_path .
+
 if [ -n "$BASH_VERSION" ] ; then
     ENV="$HOME/.bashrc"
     case $- in *i*) [ -f "$ENV" ] && . "$ENV" ; esac

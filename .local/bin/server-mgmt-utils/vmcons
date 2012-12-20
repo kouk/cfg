@@ -26,7 +26,7 @@ fi
 display=${port#59}
 tuncmd="ssh -NTf $tun$host"
 
-printf "Creating tunnel through $host:$port.. "
+printf "Creating tunnel through $host:$port..\n"
 
 $tuncmd || exit
 

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+tmux lsp -a -F '#{pane_id}:"#{session_name}"' |                     # tmux session
+    sed -ne "s|^$TMUX_PANE:||p" |                                   # for this pane
+    xargs -n 1 tmux lsc -F '#{client_termname}:#{client_tty}' -t |  # has clients
+    sed -ne 's|rxvt[^:]*:/dev/||p;s|xterm[^:]*:/dev/||p' |          # with xterms
+    xargs -n 1 ps eww -o command= -t |                              # whose procs
+    sed -e 's/[a-zA-Z_]*=/\
+    &/g' |                                                          # have env vars
+    sed -ne "s/ *DISPLAY=/export DISPLAY=/p" |                      # named DISPLAY
+    uniq                                                            

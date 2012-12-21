@@ -1,12 +1,3 @@
-if [ -n "$BASH_VERSION" ] ; then
-    ENV="$HOME/.bashrc"
-    case $- in *i*) [ -f "$ENV" ] && . "$ENV" ; esac
-elif [ -n "$KSH_VERSION" ] ; then
-    ENV="$HOME/.kshrc"
-else
-    ENV="$HOME/.shrc"
-fi
-
 export COLORFGBG="default;default"
 export CLICOLOR=true
 export EDITOR=vim
@@ -29,3 +20,13 @@ add_path ~/.local/bin
 for d in ~/.local/bin/* ; do
    [ -d $d ] && add_path $d
 done
+
+
+if [ -n "$BASH_VERSION" ] ; then
+    ENV="$HOME/.bashrc"
+    case $- in *i*) [ -f "$ENV" ] && . "$ENV" ; esac
+elif [ -n "$KSH_VERSION" ] ; then
+    ENV="$HOME/.kshrc"
+else
+    ENV="$HOME/.shrc"
+fi

@@ -10,4 +10,5 @@ precmd () (
     # ...
     echo -ne '\a'
 )
-tmxcycle
+tmxcycle && exit
+

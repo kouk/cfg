@@ -21,7 +21,10 @@ tmxcycle ( ) {
              session_name="$session_name|$sns"
              $bintmux attach -t $sns
          done
+     else
+         return 1
      fi
+
 }
 
 [ $(basename -- $0) = "tmxcycle" ] && tmxcycle "$@"

@@ -1,4 +1,4 @@
-include "/home/kouk/.themes/gtk2-theme-solarizedlight-master/gtk-2.0/gtkrc"
+include "/home/kouk/.themes/gtk2-theme-solarizedlight/gtk-2.0/gtkrc"
 style "schrift"
 {
     font_name = "DejaVu Sans 12"

@@ -2,9 +2,10 @@
 #
 # Send (and message) hooks
 #
+#
+send-hook  '~A'  'set signature="~/.signature"'
 
 ## From and Signature ##
-send-hook	.*				'set signature="~/.signature"'
 send-hook	'~t "(majordomo|subscribe)"'	'unset signature'
 
 ## Custom headers ##

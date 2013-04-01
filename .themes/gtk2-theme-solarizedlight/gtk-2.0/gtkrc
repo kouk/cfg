@@ -58,7 +58,6 @@ style "theme-default"
   engine "murrine" 
   {
 	menuitemstyle	 	= 2
-	scrollbar_color	 	= "#cb4b16"
 	scrollbarstyle	 	= 0
 	contrast		 	= 1.0
 	menustyle 		 	= 0

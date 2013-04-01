@@ -1,0 +1,4 @@
+# vi:set ft=muttrc:
+set smtp_url="$my_smtp"
+set realname="$my_name"
+set signature="~/.mutt/signatures/$my_account"

@@ -1,0 +1,8 @@
+# vi:set ft=muttrc:
+set from="$my_from"
+set folder="$my_imap"
+set postponed="=INBOX.Drafts"
+set spoolfile="=INBOX"
+set mbox="=INBOX.Archive"
+set record="=INBOX.Sent"
+unset trash

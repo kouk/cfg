@@ -6,7 +6,7 @@
 #
 folder-hook    '.*/Important'                                   'push <limit>~N|~O<enter>'
 
-folder-hook . 'set status_format="mutt_xtitle \"$my_email: $my_status_format\"|"'
+folder-hook . 'set status_format="mutt_xtitle \"$my_account: $my_status_format\"|"'
 
 ###############################################################################
 #
@@ -16,14 +16,6 @@ folder-hook . 'set status_format="mutt_xtitle \"$my_email: $my_status_format\"|"
 
 folder-hook    'imaps://.*imap.gmail.com'                     'macro index,pager S "<save-message>=[Gmail]/Spam<enter>"    "mark message as spam"
 folder-hook    'imaps://.*imap.gmail.com/.Gmail./Spam'        'macro index,pager H "<save-message>=!<enter>"               "mark message as ham"
-
-###############################################################################
-#
-# $record
-#
-###############################################################################
-
-folder-hook	'imaps://.*@imap.gmail.com'			unset record
 
 ###############################################################################
 #
@@ -66,13 +58,5 @@ folder-hook	.Spam			'set index_format="%4C %Z  [%?l?%4l&%4c?]  %D %?H?[%H] &[Non
 ###############################################################################
 
 folder-hook	.				'set collapse_unread'
-
-###############################################################################
-#
-# $trash
-#
-###############################################################################
-
-folder-hook	'imaps://*@imap.gmail.com'		'unset trash'
 
 

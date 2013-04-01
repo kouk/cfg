@@ -41,6 +41,13 @@ if ! dbus-send --dest=org.freedesktop.DBus --type=method_call / org.freedesktop.
    export DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID DBUS_SESSION_BUS_WINDOWID
 fi
 
-[ -z "$DISPLAY" ] && eval $(tmuxdisplay)
+[ -z "$DISPLAY" ] && eval $(tmuxdisplay DISPLAY LANG)
 
-# secrets=$(dbus-send --dest=org.freedesktop.DBus --type=method_call --print-reply / org.freedesktop.DBus.NameHasOwner string:org.freedesktop.secrets) 
+if dbus-send --dest=org.freedesktop.DBus --type=method_call --print-reply / org.freedesktop.DBus.NameHasOwner string:org.freedesktop.secrets | grep -q 'boolean true' ; then
+	pid=$(dbus-send --dest=org.freedesktop.DBus --type=method_call --print-reply / org.freedesktop.DBus.GetConnectionUnixProcessID string:org.freedesktop.secrets | sed -ne 's/^[ ]*uint32 \([0-9]*\)[ ]*$/\1/p')
+	if [ "$GNOME_KEYRING_PID" != "$pid" ] ; then
+        eval $(tmuxdisplay GNOME_KEYRING_CONTROL GNOME_KEYRING_PID)
+    fi
+else
+	unset GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
+fi

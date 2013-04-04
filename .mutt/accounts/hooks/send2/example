@@ -1,0 +1,3 @@
+# vi:set ft=muttrc:
+
+unset signature

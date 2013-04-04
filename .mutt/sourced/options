@@ -2,8 +2,10 @@
 #
 # Options
 #
-
-set move=yes				# Don't move to mbox folder
+#
+set beep_new
+set query_command="lbdbq %s"
+set move=yes				# Keep INBOX clean
 set noconfirmappend			# Just append, don't hassle me.
 set copy				    # Save copies of outgoing messages
 set delete=yes			    # Ask before deleting, preselecting 'yes'
@@ -15,3 +17,6 @@ set use_envelope_from=yes	#
 set print_command="iconv -f UTF-8 -t ISO8859-7 | enscript -Email -G  -f Courier-ISOLatinGreek@13 -P lexmark"
 
 set certificate_file="~/.mutt/certs"
+
+set my_mask=$mask
+# vi: ft=muttrc

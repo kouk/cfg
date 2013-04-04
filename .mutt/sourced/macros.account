@@ -1,0 +1,4 @@
+# vi:set ts=5 noet sts=0 ft=muttrc:
+
+macro index,pager 	"aa"	'<enter-command>source ~/.mutt/scripts/nextaccount.sh|<enter><enter-command>set folder = $my_imap<enter><change-folder><kill-line>=<enter>' 	"next account"
+macro browser 		"aa"	'<enter-command>source ~/.mutt/scripts/nextaccount.sh|<enter><enter-command>set folder = $my_imap<enter><change-folder><kill-line>=<enter>'		"next account"

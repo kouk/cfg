@@ -1,0 +1,3 @@
+# vi:set ft=muttrc:
+set imap_user="$my_uid"
+

@@ -1,0 +1,10 @@
+# vi:set ts=5 noet sts=0 ft=muttrc:
+
+set my_account = "example"
+set my_name	= "Konstantinos Koukopoulos"
+set my_uid	= "koukopoulos"
+set my_folder	= "imap.gmail.com"
+set my_from	= "$my_uid@gmail.com"
+set my_smtp	= "smtps://$my_from@smtp.gmail.com:465/"
+set my_imap	= "imaps://$my_folder"
+set my_alt	= "^koukopoulos\([+].*\)?@gmail.com"

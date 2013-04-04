@@ -6,11 +6,15 @@
 host=$1
 port=$2    # required if ssh config not setup for this host
 
+portremote=$port
+
 conf=$HOME/.ssh/config
 
 if grep -q "Host ${1}.vm$" $conf ; then
     if [ -z "$port" ] ; then
-        port=$(grep -A 1 "Host ${1}.vm$" $conf | sed -ne 's/LocalForward \([0-9]*\) .*/\1/p')
+        ports=$(grep -A 1 "Host ${1}.vm$" $conf | sed -ne 's/LocalForward \([0-9]*\) localhost:\([0-9]*\)/\1 \2/p')
+        port=${ports% *}
+        portremote=${ports#* }
     fi
     host=${1}.vm
     tun=""
@@ -23,19 +27,19 @@ if [ "x$port" = "x" ] ; then
     exit 1
 fi
 
-display=${port#59}
 tuncmd="ssh -NTf $tun$host"
 
-printf "Creating tunnel through $host:$port.. "
+printf "Creating tunnel to $host:$portremote.."
 
 $tuncmd || exit
 
 printf "done.\n"
 
-if [ "x$display" = "x$port" ] ; then 
+if test "$port" -lt 5900; then 
     printf "Connecting to serial console:\n"
     telnet -4 localhost $port
 else
+    display=$(expr $port - 5900)
     printf "Launching remote console viewer on display $display:\n"
     vncviewer localhost:$display
 fi

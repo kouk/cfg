@@ -3,20 +3,21 @@
 # Main configuration file.
 #
 
-source ~/.mutt/sourced/fcc-hooks		# Hooks for outgoing mail | Functionality replaced by folder-hooks
-source ~/.mutt/sourced/autoview			# Autoview
-source ~/.mutt/sourced/bindings			# Key bindings 
-source ~/.mutt/sourced/composing		# Composing & sending.
-source ~/.mutt/sourced/display			# Display settings.
-source ~/.mutt/sourced/identity			# Identity.
-source ~/.mutt/sourced/folder-hooks		# Folder hooks.
-source ~/.mutt/sourced/gpg			    # GnuPG 
-source ~/.mutt/sourced/smime        	# S/MIME
-source ~/.mutt/sourced/headers			# Customize header display 
-source ~/.mutt/lists			        # Mailing lists (subscribed or not)
-source ~/.mutt/sourced/macros			# Macros.
-source ~/.mutt/sourced/options			# Options.
-source ~/.mutt/sourced/send-hooks		# Automatically change From: headers and such
-source ~/.mutt/sourced/spam			    # Spam filtering settings.
-source ~/.mutt/sourced/sidebar			# Sidebar
+source ~/.mutt/sourced/autoview         # Autoview
+source ~/.mutt/sourced/bindings         # Key bindings 
+source ~/.mutt/sourced/composing        # Composing & sending.
+source ~/.mutt/sourced/display          # Display settings.
+source ~/.mutt/sourced/folder-hooks     # Folder hooks (overriden in accounts)
+source ~/.mutt/sourced/send-hooks       # Send hooks (overriden in accounts)
+source ~/.mutt/sourced/gpg              # GnuPG 
+source ~/.mutt/sourced/smime            # S/MIME
+source ~/.mutt/sourced/headers          # Customize header display 
+source ~/.mutt/lists                    # Mailing lists (subscribed or not)
+source ~/.mutt/sourced/macros           # Macros.
+source ~/.mutt/sourced/macros.account   # Macros.
+source ~/.mutt/sourced/options          # Options.
+source ~/.mutt/sourced/spam             # Spam filtering settings.
+source ~/.mutt/sourced/sidebar          # Sidebar
+source ~/.mutt/sourced/imap             # IMAP options
+source ~/.mutt/sourced/identity         # Identity & Account.
 source ~/.local/share/solarized/mutt-colors/mutt-colors-solarized-dark-16.muttrc # theme

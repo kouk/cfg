@@ -2,7 +2,7 @@ export COLORFGBG="default;default"
 export CLICOLOR=true
 export EDITOR=vim
 export FCEDIT=vim
-export BROWSER=opera
+export BROWSER=opera:w3m
 export PAGER=less
 # java options
 for i in java appletviewer javaws opera ; do

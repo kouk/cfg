@@ -342,7 +342,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- {{{ functions to help launch run commands in a terminal using ":" keyword 
 function check_for_terminal (command)
    if command:sub(1,1) == ":" then
-      command = terminal .. ' -e "' .. command:sub(2) .. '"'
+      command = terminal .. ' -e ' .. command:sub(2)
    end
    awful.util.spawn(command)
 end

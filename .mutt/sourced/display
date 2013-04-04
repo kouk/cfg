@@ -39,5 +39,5 @@ set status_format="mutt_xtitle '$my_status_format'|"
 
 unset wait_key				# Don't prompt for a key press after shell-escape and the like.
 
-set folder_format="%t %2N   %f %2C %s %d "
+set folder_format="%t %2N   %f %> %-10s %d" 
 

@@ -1,5 +1,11 @@
 #!/usr/local/bin/ksh93
 
+if [ "$1" = "-v" ] ; then
+    shift
+else
+    exec 2>/dev/null
+fi
+
 tmxcycle ( ) {
      # if no session is started, start a new session
      if [ -x /usr/local/bin/tmux -a -z "${TMUX}" ]; then
@@ -21,7 +27,10 @@ tmxcycle ( ) {
              session_name="$session_name|$sns"
              $bintmux attach -t $sns
          done
+     else
+         return 1
      fi
+
 }
 
 [ $(basename -- $0) = "tmxcycle" ] && tmxcycle "$@"

@@ -172,13 +172,19 @@ set guioptions-=r  "remove right-hand scroll bar
 
 call init#SetupVAM()
 
-let g:vim_addon_manager.plugin_sources["xml-nospell-syntax"] = {'type' : 'git', 'url': 'git://github.com/kouk/vim-xml-nospell-syntax.git'}
+let g:vim_addon_manager.plugin_sources["xml-nospell-syntax"] = {'type' : 'git', 'url': 'git://github.com/kouk/vim-xml-nospell-syntax'}
+let g:vim_addon_manager.plugin_sources["vim-ledger"] = {'type' : 'git', 'url': 'git://github.com/ledger/vim-ledger'}
+let g:vim_addon_manager.plugin_sources["snipMate"] = {'type' : 'git', 'url': 'git://github.com/garbas/vim-snipmate'}
+let g:vim_addon_manager.plugin_sources["vim-snippets"] = {'type' : 'git', 'url': 'git://github.com/honza/vim-snippets'}
 
 call vam#ActivateAddons([
     \ 'SudoEdit',
     \ 'Solarized',
     \ 'pathogen',
+    \ 'vim-ledger',
     \ 'uri-ref',
+    \ 'snipMate',
+    \ 'vim-snippets',
     \ 'gnupg%3645',
     \ 'vim-addon-local-vimrc',
     \ 'vcscommand',

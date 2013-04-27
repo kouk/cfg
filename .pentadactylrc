@@ -1,0 +1,95 @@
+colorscheme solarized-light
+
+
+set defsearch='duckduckgo'
+
+map , <Leader>
+
+" faster scrolling
+map -builtin H 5h
+map -builtin J 5j
+map -builtin K 5k
+map -builtin L 5l
+map -builtin <A-h> 5h
+map -builtin <A-j> 5j
+map -builtin <A-k> 5k
+map -builtin <A-l> 5l
+
+group -description 'Google-like shortcuts normal/visual mode' -locations=mail.google.com,www.google.com/reader,plus.google.com,dev.newsblur.com,duckduckgo.com google
+
+map -builtin -group=google gi <Pass>
+map -builtin -group=google gs <Pass>
+map -builtin -group=google gt <Pass>
+map -builtin -group=google gd <Pass>
+map -builtin -group=google gc <Pass>
+map -builtin -group=google gb <Pass>
+map -builtin -group=google gk <Pass>
+map -builtin -group=google gk <Pass>
+map -builtin -group=google gl <Pass>
+map -builtin -group=google T <Pass>
+map -builtin -group=google x <Pass>
+map -builtin -group=google s <Pass>
+map -builtin -group=google e <Pass>
+map -builtin -group=google m <Pass>
+map -builtin -group=google ! <Pass>
+map -builtin -group=google # <Pass>
+map -builtin -group=google * <Pass>
+map -builtin -group=google r <Pass>
+map -builtin -group=google a <Pass>
+map -builtin -group=google v <Pass>
+map -builtin -group=google N <Pass>
+map -builtin -group=google [ <Pass>
+map -builtin -group=google ] <Pass>
+map -builtin -group=google { <Pass>
+map -builtin -group=google } <Pass>
+map -builtin -group=google z <Pass>
+map -builtin -group=google . <Pass>
+map -builtin -group=google I <Pass>
+map -builtin -group=google U <Pass>
+map -builtin -group=google = <Pass>
+map -builtin -group=google \- <Pass>
+map -builtin -group=google ~ <Pass>
+map -builtin -group=google g <Pass>
+map -builtin -group=google i <Pass>
+map -builtin -group=google a <Pass>
+map -builtin -group=google c <Pass>
+" map -builtin -group=google / <Pass>
+map -builtin -group=google ? <Pass>
+map -builtin -group=google l <Pass>
+map -builtin -group=google u <Pass>
+map -builtin -group=google j <Pass>
+map -builtin -group=google k <Pass>
+map -builtin -group=google o <Pass>
+map -builtin -group=google n <Pass>
+map -builtin -group=google p <Pass>
+map -builtin -group=google q <Pass>
+map -builtin -group=google ` <Pass>
+" these are for newsblur
+map -builtin -group=google <Left> <Pass>
+map -builtin -group=google <Right> <Pass>
+map -builtin -group=google <Esc> <Pass>
+map -builtin -group=google f <Pass>
+map -builtin -group=google t <Pass>
+map -builtin -group=google d <Pass>
+map -builtin -group=google A <Pass>
+map -builtin -group=google E <Pass>
+
+" allow scrolling in ggl apps
+map -builtin -group=google J <Down>
+map -builtin -group=google K <Up>
+
+
+" set passkeys+='mail.google.com':xsem!#*rRaAvN[]{}z.IU=-gidac/?lujkonp
+" set passkeys+='www.google.com/reader':xsem!#*rRaAvN[]{}z.IU=-gidac/?lujkonp
+set passkeys+='www.google.com/calendar':jk12345cezq
+set passkeys+='www.google.com/search':jk
+
+
+" jump to important sites
+map -group=user <Leader>= :b Google+<CR>
+map -group=user <Leader>e :b koukopoulos@g<CR>
+map -group=user <Leader>k :b Calendar<CR>
+map -group=user <Leader>v :b Voice<CR>
+map -group=user <Leader>r :b Google Reader<CR>
+map -group=user <Leader>n :b NewsBlur<CR>
+

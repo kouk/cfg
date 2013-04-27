@@ -6,6 +6,8 @@ information in certain files. For each account you can create individual files
 as described below. These will override the settings in the corresponding `generic`
 files.
 
+This setup is based on my previous setup which, in turn, was based on [this setup](https://github.com/redondos/mutt/) by redondos.
+
 
 file examples
 -------------

@@ -2,6 +2,8 @@
 #
 # Options
 #
+
+set ssl_min_dh_prime_bits=512
 #
 set beep_new
 set query_command="lbdbq %s"

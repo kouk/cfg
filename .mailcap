@@ -1,10 +1,7 @@
 # $Id$
 
 application/msword; antiword %s; nametemplate=%s.doc ; copiousoutput
-application/pdf; xpdf %s ; test=RunningX
 application/pdf; pdftotext -q %s - ; copiousoutput
-#text/html; opera -remote openURL\(%s\) ; test=RunningX
-text/html; chrome %s ; test=RunningX
 text/html; w3m %s; nametemplate=%s.html
 text/html; w3m -dump %s; nametemplate=%s.html ; copiousoutput
 image/gif; feh -F -Z %s

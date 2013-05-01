@@ -6,10 +6,11 @@
 -- Alternative icon sets and widget icons:
 --  * http://awesome.naquadah.org/wiki/Nice_Icons
 
+local awful=require("awful")
 -- {{{ Main
 theme = {}
 theme.default_themes_path = awful.util.getdir("config") .. "/themes"
-theme.wallpaper_cmd = { "awsetbg -l " }
+theme.wallpaper_cmd = { ". ~/.fehbg" }
 theme.colors = {}
 theme.colors.base3   = "#002b36ff"
 theme.colors.base2   = "#073642ff"

@@ -5,10 +5,12 @@ IFS="|"
 envs="$*"
 IFS=$save
 
-set - $(tmuxterms)
-
-ps eww -o command= -t $1 |     # select attached processes
-sed -e 's/[a-zA-Z_]*=/\
-&/g' | sort | uniq |           # one env var per line
-egrep "[ ]*($envs)" |
-sed -E -e "s/^/export /"
+terms=$(tmuxterms)
+if test -n "$terms" ; then
+    set - $terms
+    ps eww -o command= -t $1 |     # select attached processes
+    sed -e 's/[a-zA-Z_]*=/\
+    &/g' | sort | uniq |           # one env var per line
+    egrep "[ ]*($envs)" |
+    sed -E -e "s/^/export /"
+fi

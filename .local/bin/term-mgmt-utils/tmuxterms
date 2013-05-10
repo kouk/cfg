@@ -3,6 +3,8 @@
 # list the terminal devices in which there are currently 
 # tmux clients displaying the current pane
 
+tmux ls >/dev/null 2>&1 || exit 1
+
 tmux lsp -a -F '#{pane_id}:"#{session_name}"'   |                     
     sed -ne "s|^$TMUX_PANE:||p"                 |                                  
     xargs -n 1 tmux lsc -F '#{client_tty}' -t   |

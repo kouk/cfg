@@ -18,6 +18,10 @@ terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
+-- Load symlinked per-box file
+custom_widgets = {}
+dofile(awful.util.getdir("config") .. "/per-box.lua")
+
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -49,8 +53,6 @@ tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = awful.tag({ "♨", "⌨", "⚡", "✉", "☕", "❁", "☃", "☄", "⚢" }, s, layouts[2])
-
-    --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
 end
 -- }}}
 
@@ -143,6 +145,9 @@ for s = 1, screen.count() do
     right_layout:add(mylayoutbox[s])
     right_layout:add(mytextclock)
     if s==1 then right_layout:add(mysystray) end
+    for _, wdgt in pairs(custom_widgets) do
+        right_layout:add(wdgt)
+    end
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
     layout:set_middle(mytasklist[s])

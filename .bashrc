@@ -2,6 +2,11 @@ PS1='\h:\w'
 
 . ~/.shrc
 
+_nprx="[^[:print:]][[:print:]]*[^[:print:]]"
+
+PS1=$(echo "$PS1" | 
+    sed -e 's/\('$_nprx'\)/\\[\1\\]/g')
+
 shopt -s checkwinsize
 
 bash_completion=$(dirname $SHELL)/../etc/bash_completion
@@ -10,6 +15,7 @@ if [ -f $bash_completion ] && ! shopt -oq posix; then
 fi
 unset bash_completion
 
-export PROMPT_COMMAND="echo -ne '\a'"
+#wtf?
+#export PROMPT_COMMAND="echo -ne '\a'"
 
 tmxcycle

@@ -11,6 +11,16 @@ done
 TILDE='~'
 PS1="$(hostname -s):"'${TILDE[(1-0${PWD%%@([!!/]*|$HOME*)}1)]-}${PWD#$HOME}'
 
+case "$TERM" in
+xterm*|rxvt*|screen)
+    PS1="]0;$PS1$PS1"
+    ;;
+*)
+    ;;
+esac
+
+PS1="$PS1\$ "
+
 . ~/.shrc
 
 precmd () (

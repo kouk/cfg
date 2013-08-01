@@ -1,19 +1,29 @@
-PS1='\h:\w'
+case "$TERM" in
+xterm*|rxvt*|screen)
+    PS1='\[]0;\h:\w\]\h:\w'
+    ;;
+*)
+    PS1='\h:\w'
+    ;;
+esac
+
+if type __git_ps1 >/dev/null 2>&1 ; then
+    PS1=${PS1}'[0;32m$(__git_ps1)[m\]'
+fi
 
 . ~/.shrc
 
-_nprx="[^[:print:]][[:print:]]*[^[:print:]]"
+PS1="$PS1\$ "
 
-PS1=$(echo "$PS1" | 
-    sed -e 's/\('$_nprx'\)/\\[\1\\]/g')
 
 shopt -s checkwinsize
 
-bash_completion=$(dirname $SHELL)/../etc/bash_completion
-if [ -f $bash_completion ] && ! shopt -oq posix; then
-    . $bash_completion
-fi
-unset bash_completion
+for bash_completion in $(dirname $SHELL)/../etc/bash_completion \
+    /etc/profile.d/bash_completion ; do
+    if [ -f $bash_completion ] && ! shopt -oq posix; then
+        . $bash_completion
+    fi
+done
 
 #wtf?
 #export PROMPT_COMMAND="echo -ne '\a'"

@@ -3,6 +3,7 @@ README.md skip
 .local recurse
 .vim recurse
 .config recurse
+.config/fish recurse
 .mutt recurse
 .aptitude recurse
 .gnupg recurse

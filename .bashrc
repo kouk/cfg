@@ -18,6 +18,10 @@ PS1="$PS1\$ "
 
 shopt -s checkwinsize
 
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 for bash_completion in $(dirname $SHELL)/../etc/bash_completion \
     /etc/profile.d/bash_completion ; do
     if [ -f $bash_completion ] && ! shopt -oq posix; then

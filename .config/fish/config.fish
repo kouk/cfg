@@ -11,3 +11,7 @@ set fish_path $HOME/.oh-my-fish
 # Plugins and themes can be found at https://github.com/oh-my-fish/
 Theme 'bobthefish'
 Plugin 'theme'
+
+eval (direnv hook fish)
+eval (python3.4 -m virtualfish compat_aliases auto_activation global_requirements projects)
+

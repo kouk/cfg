@@ -1,5 +1,8 @@
 " vi:set ts=3:
+"
+set shell=/bin/sh
 
+scriptencoding utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,iso-8859-7,latin1
 
@@ -176,29 +179,68 @@ let g:vim_addon_manager.plugin_sources["xml-nospell-syntax"] = {'type' : 'git', 
 let g:vim_addon_manager.plugin_sources["vim-ledger"] = {'type' : 'git', 'url': 'git://github.com/ledger/vim-ledger'}
 let g:vim_addon_manager.plugin_sources["snipMate"] = {'type' : 'git', 'url': 'git://github.com/garbas/vim-snipmate'}
 let g:vim_addon_manager.plugin_sources["vim-snippets"] = {'type' : 'git', 'url': 'git://github.com/honza/vim-snippets'}
+let g:vim_addon_manager.plugin_sources["tmuxline"] = {'type' : 'git', 'url': 'git://github.com/edkolev/tmuxline.vim'}
+let g:vim_addon_manager.plugin_sources["nerdtree-git-plugin"] = {'type' : 'git', 'url': 'git://github.com/Xuyuanp/nerdtree-git-plugin'}
 
 call vam#ActivateAddons([
+    \ 'rainbow_parentheses',
+    \ 'ctrlp',
+    \ 'vim-airline',
+    \ 'nerdtree-git-plugin',
+    \ 'Syntastic',
+    \ 'tmuxline',
+    \ 'vim-addon-scala',
+    \ 'vim-addon-sbt',
+    \ 'vim-addon-actions',
     \ 'SudoEdit',
     \ 'Solarized',
     \ 'pathogen',
     \ 'vim-ledger',
+    \ 'vim-gradle',
     \ 'uri-ref',
     \ 'snipMate',
     \ 'vim-snippets',
     \ 'gnupg%3645',
     \ 'vim-addon-local-vimrc',
-    \ 'vcscommand',
+    \ 'fugitive',
     \ 'xml-nospell-syntax',
     \ 'bufexplorer.zip',
     \ ], {'auto_install' : 0})
 call pathogen#infect() " for plugins not available with VAM
 
+set t_Co=16
 let g:solarized_termtrans=1
 let g:solarized_termcolors=16
 let g:solarized_visibility="high"
 colorscheme solarized
 
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
 let g:sudoAuth="sudo"
 let g:sudoAuthArg=""
 
 let g:local_vimrc = {'names':['.vimrc_local'],'hash_fun':'LVRHashOfFile'}
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+au Filetype java compiler mvn
+au Filetype pom compiler mvn
+
+au FileType ledger vnoremap <silent><buffer> <Leader>a <Esc>:LedgerAlign<CR>
+au FileType ledger inoremap <silent><buffer> <C-l> <Esc>:call ledger#align_amount_at_cursor()<CR>:LedgerAlign<CR>
+au FileType ledger inoremap <silent><buffer> <C-s> <Esc>"=substitute(system('dc', @0 . "\n+ 0 r - p"),"\n$", "", "g")<CR>p:call ledger#align_amount_at_cursor()<CR>:LedgerAlign<CR>
+
+au FileType ledger let g:ledger_align_at=57
+au FileType ledger let g:ledger_commodity_sep=' '
+au FileType ledger let g:ledger_default_commodity='EUR'
+au FileType ledger let g:ledger_commodity_before=0
+
+let NERDTreeAutoDeleteBuffer=1
+

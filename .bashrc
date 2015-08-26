@@ -33,3 +33,5 @@ done
 #export PROMPT_COMMAND="echo -ne '\a'"
 
 tmxcycle
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
